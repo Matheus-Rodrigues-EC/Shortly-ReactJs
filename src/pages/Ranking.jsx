@@ -1,10 +1,18 @@
 import styled from "styled-components";
 
+import Navbar from "../components/NavBar";
+import Logo from "../components/Logo";
+import RankLogo from "../components/RankLogo";
+import Rank from "../components/Rank";
+
 export default function Ranking(){
     
     return (
         <Container>
-            <h1>Ranking Page</h1>
+            <Navbar />
+            <Logo />
+            <RankLogo />
+            <Rank />
         </Container>
     )
 }
