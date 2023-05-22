@@ -7,12 +7,13 @@ import Navbar from "../components/NavBar";
 import Logo from "../components/Logo";
 import ListLinks from "../components/ListLinks";
 
-export default function Home(){
+export default function Home(props){
+
+    const {name, setName} = props;
 
     const api = axios.create();
     const token = localStorage.getItem("token");
     const Navigate = useNavigate();
-    const [name, setName] = useState();
     const [links, setLinks] = useState([]);
     const [url, setUrl] = useState();
 
@@ -29,9 +30,12 @@ export default function Home(){
                 setName(res.data.name);
                 setLinks(res.data.shortenedUrls);
             })
-            .catch((error) => {alert(error)})
+            .catch((error) => {
+                alert(error);
+                Navigate('/');
+            })
 
-    }, [api, token, Navigate]);
+    }, [api, token, links, name, setName, Navigate]);
 
     function sendUrl(url){
         const body = {url};
@@ -43,7 +47,9 @@ export default function Home(){
             }
         )
             .then((res) => {})
-            .catch((error) => {alert(error.response.data)})
+            .catch((error) => {
+                alert(error.response.data);
+            })
     }
     
     return (

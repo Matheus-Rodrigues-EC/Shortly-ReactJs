@@ -1,3 +1,4 @@
+import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -6,10 +7,24 @@ export default function Navbar(props){
     const {name} = props;
     const Navigate = useNavigate();
 
+    const api = axios.create();
+    const token = localStorage.getItem("token");
+
     function Sair(){
-        localStorage.removeItem("token");
-        alert("Sessão encerrada.")
-        Navigate("/");
+        api.delete(`${process.env.REACT_APP_API_URL}/home/session`, 
+            {
+                headers: {
+                    'Authorization': `Baerer ${token}` 
+                }
+            }
+        )
+            .then((res) => {
+                localStorage.removeItem("token");
+                alert("Sessão encerrada.")
+                Navigate("/");
+                return;
+            })
+            .catch((error) => {alert(error)});
     }
 
     return (
