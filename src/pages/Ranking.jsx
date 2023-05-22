@@ -5,11 +5,12 @@ import Logo from "../components/Logo";
 import RankLogo from "../components/RankLogo";
 import Rank from "../components/Rank";
 
-export default function Ranking(){
-    
+export default function Ranking(props){
+    const {name} = props;
+
     return (
         <Container>
-            <Navbar />
+            <Navbar name={name} />
             <Logo />
             <RankLogo />
             <Rank />
@@ -18,6 +19,8 @@ export default function Ranking(){
 }
 
 const Container = styled.div`
+    display: flex;
+    flex-direction: column;
     background-color: #FFFFFF;
     margin: 0;
     padding: 0;
