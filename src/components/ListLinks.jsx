@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect } from "react";
 import styled from "styled-components";
 import Trash from "../assets/Trash.png"
 
@@ -9,11 +8,8 @@ export default function ListLinks(props){
     const api = axios.create();
     const token = localStorage.getItem("token");
 
-    useEffect(() => {
 
-    }, [links])
-
-    function delteLink(id){
+    function deleteLink(id){
         api.delete(`${process.env.REACT_APP_API_URL}/urls/${id}`,
             {
                 headers: {
@@ -30,7 +26,7 @@ export default function ListLinks(props){
 
     function followLink(shortUrl){
         api.get(`${process.env.REACT_APP_API_URL}/urls/open/${shortUrl}`)
-            .then((res) => {alert(res.data)})
+            .then((res) => {})
             .catch((error) => {alert(error.message)})
     }
 
@@ -44,7 +40,7 @@ export default function ListLinks(props){
                             <p onClick={() => {followLink(item.shortUrl)}}> { item.shortUrl } </p>
                             <p> Quantidade de visitantes: { item.visitCount } </p>
                         </Infos>
-                        <button onClick={() => {delteLink(item.id)}}><img src={Trash} alt="Referência a uma lixeira" /></button>
+                        <button onClick={() => {deleteLink(item.id)}}><img src={Trash} alt="Referência a uma lixeira" /></button>
                     </Encurtado>
                 )
             })}
@@ -102,6 +98,7 @@ const Infos = styled.div`
         font-size: 14px;
         width: 30%;
         padding: 3px 0;
+        word-break: break-all;
         cursor: pointer;
 
         color: #FFFFFF;
