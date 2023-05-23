@@ -46,7 +46,7 @@ export default function Home(props){
                 }
             }
         )
-            .then((res) => {})
+            .then((res) => {setUrl('');})
             .catch((error) => {
                 alert(error.response.data);
             })
