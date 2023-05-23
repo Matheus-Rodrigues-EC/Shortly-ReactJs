@@ -23,7 +23,7 @@ export default function SignUp(){
                 alert("Usuário Criado");
                 Navigate('/signin');
             })
-            .catch((error) => {alert(error.response.data)});
+            .catch((error) => {alert(error)});
     }
 
     return (

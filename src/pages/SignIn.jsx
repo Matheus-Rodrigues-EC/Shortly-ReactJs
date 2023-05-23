@@ -21,7 +21,7 @@ export default function SignIn(){
                 localStorage.setItem("token", res.data.token);
                 Navigate("/home");
             })
-            .catch((error) => {alert(error.response.data)});
+            .catch((error) => {alert(error)});
     }
 
     return (
