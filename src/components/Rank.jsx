@@ -13,7 +13,7 @@ export default function Rank(){
                 setRank(res.data);
             })
             .catch((error) => {
-                alert(error.message)
+                alert(error.response.data)
             })
     }, [api, rank]);
 

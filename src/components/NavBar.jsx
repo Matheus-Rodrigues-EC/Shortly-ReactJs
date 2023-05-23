@@ -24,7 +24,7 @@ export default function Navbar(props){
                 Navigate("/");
                 return;
             })
-            .catch((error) => {alert(error)});
+            .catch((error) => {alert(error.response.data)});
     }
 
     return (

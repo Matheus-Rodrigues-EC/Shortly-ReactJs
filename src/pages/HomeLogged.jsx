@@ -31,7 +31,7 @@ export default function Home(props){
                 setLinks(res.data.shortenedUrls);
             })
             .catch((error) => {
-                alert(error);
+                alert(error.response.data);
                 Navigate('/');
             })
 
