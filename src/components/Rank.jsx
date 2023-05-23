@@ -44,7 +44,7 @@ const Container = styled.div`
     padding: 0;
 
     width: 1017px;
-    height: 241px;
+    height: auto;
 
     background: #FFFFFF;
     border: 1px solid rgba(120, 177, 89, 0.25);
