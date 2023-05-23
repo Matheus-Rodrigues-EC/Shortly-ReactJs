@@ -26,7 +26,7 @@ export default function Rank(){
                         <User key={user.id}>
                             <p>{index+1}. {user.name} - </p>
                             <p> {user.linksCount} links - </p>
-                            <p> {user.visitCount} vizualizações</p>
+                            <p> {user.visitCount} visualizações</p>
                         </User>
                     )
                 })}
