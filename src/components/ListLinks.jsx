@@ -26,7 +26,7 @@ export default function ListLinks(props){
 
     function followLink(shortUrl){
         api.get(`${process.env.REACT_APP_API_URL}/urls/open/${shortUrl}`)
-            .then((res) => {window.open(res.data)})
+            .then((res) => {window.open(res.data, '_blank')})
             .catch((error) => {alert(error.response.data)})
     }
 
